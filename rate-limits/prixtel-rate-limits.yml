@@ -1,0 +1,18 @@
+generated: '2026-08-17'
+method: searched
+source: https://www.prixtel.com/
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limits are documented, because no API is documented. Prixtel publishes no
+  developer portal, no API reference, and no machine-readable contract, so there is no
+  endpoint whose throughput could be limited and no response whose headers could carry a
+  RateLimit-* / X-RateLimit-* / Retry-After signal. api.prixtel.com is a live nginx origin
+  (it backs the Prixtel iOS/Android app) but it returns a bare 404 on every probed path
+  including its own root, so nothing was observed on the wire either. limit_count: 0 is a
+  measured zero, not an unchecked field.
+probes:
+- {url: 'https://api.prixtel.com/', status: 404}
+- {url: 'https://api.prixtel.com/v1', status: 404}
+- {url: 'https://www.prixtel.com/api', status: 404}

@@ -1,0 +1,86 @@
+generated: '2026-08-17'
+method: probed
+source: live HTTP probes of every Prixtel host reachable in DNS
+host: https://www.prixtel.com
+note: >-
+  Every /.well-known/ path was probed on all seven live Prixtel hosts and NOT ONE
+  returned a document. No WellKnown, SecurityTxt or APICatalog pointer is emitted from
+  this file — it records an absence, not a presence. On www.prixtel.com and prixtel.com
+  the edge answers /.well-known/* with an HTTP 503 and a 190-byte HTML error body rather
+  than a 404, so the path namespace is not routed at all. api.prixtel.com (a live nginx
+  origin that backs the Prixtel mobile app) answers a plain nginx 404 on every path.
+  espaceclient.prixtel.com and tunnel.prixtel.com answer 405 Method Not Allowed on every
+  GET, including the site root.
+robots:
+  url: https://www.prixtel.com/robots.txt
+  status: 200
+  disallowed:
+  - /media/
+  - /souscription/
+  - /panier/
+  - /tunnel/
+  - /ws-externe/
+  - /votre-avis/
+  note: >-
+    robots.txt disallows /ws-externe/ ("external web service"), the only path on the site
+    whose name suggests a machine interface. It was NOT probed — API Evangelist honors
+    robots.txt. Nothing about that namespace is documented publicly.
+hosts:
+- host: https://www.prixtel.com
+  documents:
+  - {path: /.well-known/security.txt, status: 503}
+  - {path: /.well-known/openid-configuration, status: 503}
+  - {path: /.well-known/oauth-authorization-server, status: 503}
+  - {path: /.well-known/api-catalog, status: 503}
+  - {path: /.well-known/ai-plugin.json, status: 503}
+  - {path: /.well-known/agent-card.json, status: 503}
+  - {path: /.well-known/agent.json, status: 503}
+- host: https://prixtel.com
+  documents:
+  - {path: /.well-known/security.txt, status: 503}
+  - {path: /.well-known/openid-configuration, status: 503}
+  - {path: /.well-known/oauth-authorization-server, status: 503}
+  - {path: /.well-known/api-catalog, status: 503}
+  - {path: /.well-known/ai-plugin.json, status: 503}
+  - {path: /.well-known/agent-card.json, status: 503}
+  - {path: /.well-known/agent.json, status: 503}
+- host: https://api.prixtel.com
+  note: live nginx origin; serves 404 on / and on every probed path
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://pro.prixtel.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://assistance.prixtel.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://espaceclient.prixtel.com
+  note: answers 405 Method Not Allowed to every GET, including the root
+  documents:
+  - {path: /.well-known/security.txt, status: 405}
+  - {path: /.well-known/api-catalog, status: 405}
+  - {path: /.well-known/agent-card.json, status: 405}
+  - {path: /.well-known/agent.json, status: 405}
+- host: https://tunnel.prixtel.com
+  note: answers 405 Method Not Allowed to every GET, including the root
+  documents:
+  - {path: /.well-known/security.txt, status: 405}
+  - {path: /.well-known/api-catalog, status: 405}
+  - {path: /.well-known/agent-card.json, status: 405}
+  - {path: /.well-known/agent.json, status: 405}
+documents: []
+agent_card: none
+security_txt: none

@@ -1,0 +1,56 @@
+generated: '2026-08-17'
+method: searched
+source: >-
+  unauthenticated registry metadata sweep — registry.npmjs.org, pypi.org, rubygems.org,
+  crates.io, packagist.org, nuget.org, search.maven.org, proxy.golang.org, api.github.com
+package_count: 0
+official_sdk_count: 0
+packages: []
+note: >-
+  Prixtel ships NO first-party client library in any public package registry, and no SDKs
+  pointer is emitted from this file. Nine registries were queried by their own metadata
+  endpoints and every one returned either zero results or an unrelated name collision.
+  Prixtel also has no GitHub organization — https://api.github.com/orgs/prixtel returns 404
+  — so there is no source-code surface from which a package could be published. This is a
+  measured zero for a consumer MVNO that sells mobile subscriptions to human customers, not
+  a gap in the sweep.
+registries_probed:
+- {registry: npm, query: 'https://registry.npmjs.org/-/v1/search?text=prixtel', results: 0}
+- {registry: pypi, query: 'https://pypi.org/pypi/prixtel/json', status: 404}
+- {registry: rubygems, query: 'https://rubygems.org/api/v1/gems/prixtel.json', status: 404}
+- {registry: crates.io, query: 'https://crates.io/api/v1/crates?q=prixtel', status: 403, note: crates.io data-access policy refused the anonymous query; no crate named prixtel is known}
+- {registry: packagist, query: 'https://packagist.org/search.json?q=prixtel', results: 1, note: 'single hit is rixtellab/opauth-frype — a substring collision, unrelated to Prixtel'}
+- {registry: nuget, query: 'https://azuresearch-usnc.nuget.org/query?q=prixtel', results: 0}
+- {registry: maven-central, query: 'https://search.maven.org/solrsearch/select?q=prixtel', results: 0}
+- {registry: go-modules, query: 'https://proxy.golang.org/github.com/prixtel/@v/list', status: 404}
+- {registry: github-org, query: 'https://api.github.com/orgs/prixtel', status: 404}
+third_party_only:
+- name: konnectors/prixtel
+  url: https://github.com/konnectors/prixtel
+  official: false
+  version: null
+  published: null
+  note: >-
+    A Cozy Cloud "konnector" maintained by the Cozy community (last pushed 2026-07-12) that
+    retrieves a subscriber's own bills and documents from Prixtel. Its README documents
+    login+password fields, i.e. it drives the customer web session — it is a third-party
+    scraper of the consumer portal, NOT a client for a published Prixtel API, and Prixtel
+    neither authors nor endorses it. Recorded here only so a later run does not mistake it
+    for a first-party SDK. No registry version applies; it is distributed as a Cozy app.
+- name: UnelDev/prixtel-discord-bot
+  url: https://github.com/UnelDev/prixtel-discord-bot
+  official: false
+  version: null
+  published: null
+  note: >-
+    Unaffiliated hobby Discord bot found in the GitHub search for "prixtel". Not a Prixtel
+    artifact; listed to close the search, not as provider evidence.
+mobile_apps:
+- name: Prixtel (Android)
+  url: https://play.google.com/store/apps/details?id=com.mobile.prixtel
+  official: true
+  note: >-
+    Prixtel's only first-party software distribution is an end-user mobile app (consumption
+    tracking, invoices, line management). An app store listing is a consumer product, not a
+    developer package, so it is recorded here rather than in packages[] and earns no SDK
+    credit. The app is what api.prixtel.com serves.

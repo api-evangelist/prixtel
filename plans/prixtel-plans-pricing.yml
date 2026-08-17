@@ -1,0 +1,22 @@
+generated: '2026-08-17'
+method: searched
+source: https://www.prixtel.com/forfait-mobile/
+plan_count: 0
+plans: []
+note: >-
+  Prixtel publishes no API plans, because it publishes no API. What it does publish, in
+  full and without a login, is CONSUMER MOBILE TARIFFS — four flexible forfaits (Oxygène,
+  Le petit, Le grand, Le géant) whose monthly price moves between published tiers with the
+  data actually consumed, plus an international rate card and a separate professional
+  (pro.prixtel.com) offer. Those are retail telecom tariffs sold to human subscribers, not
+  metered access to a programmable interface, so recording them here as plans[] would
+  misstate what the company sells to developers. plan_count is 0 as a measured fact: there
+  is no developer tier, no free tier, no key issuance, and no rate card attached to an
+  endpoint anywhere on the Prixtel estate.
+consumer_pricing_pages:
+- {name: Forfaits mobiles (flexible plan tiers), url: 'https://www.prixtel.com/forfait-mobile/', status: 200}
+- {name: Forfait Oxygène, url: 'https://www.prixtel.com/forfait-mobile/forfait-illimite/', status: 200}
+- {name: Forfait Le petit, url: 'https://www.prixtel.com/forfait-mobile/forfait-lepetit/', status: 200}
+- {name: Forfait Le grand, url: 'https://www.prixtel.com/forfait-mobile/forfait-legrand/', status: 200}
+- {name: Tarifs internationaux, url: 'https://www.prixtel.com/tarifs-internationaux', status: 200}
+- {name: Offres pro, url: 'https://pro.prixtel.com/', status: 200}
