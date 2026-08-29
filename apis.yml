@@ -13,6 +13,17 @@ description: 'Prixtel is a French mobile virtual network operator (MVNO) founded
   contract of any kind. Its only first-party software distribution is an end-user iOS/Android
   app for consumption tracking, invoices and line management; api.prixtel.com is that app''s
   private backend and returns HTTP 404 on every probed path, including its own root.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prixtel.com/sources/prixtel/images/assets/logo-prixtel.svg
 url: https://raw.githubusercontent.com/api-evangelist/prixtel/refs/heads/main/apis.yml
 x-type: company
