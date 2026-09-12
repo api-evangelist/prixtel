@@ -9,20 +9,20 @@
       "method": "none"
     },
     {
-      "source": "https://www.prixtel.com/decouvrir-prixtel/feed/",
-      "feed_url": "https://www.prixtel.com/decouvrir-prixtel/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
-    },
-    {
       "source": "https://www.prixtel.com/decouvrir-prixtel/",
       "feed_url": "https://www.prixtel.com/decouvrir-prixtel/feed/",
       "title": "",
       "saved": 0,
       "method": "discovered"
+    },
+    {
+      "source": "https://www.prixtel.com/decouvrir-prixtel/feed/",
+      "feed_url": "https://www.prixtel.com/decouvrir-prixtel/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     }
   ],
   "post_count": 9,
-  "fetched": "2026-08-30T22:33:40Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
