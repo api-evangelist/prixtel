@@ -64,46 +64,96 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Prixtel is a French mobile virtual network operator (MVNO) founded in 2004 by David Charles and
-headquartered in Aix-en-Provence. It is known for *forfaits flexibles* — mobile plans whose monthly
-price moves automatically between published tiers according to the data a subscriber actually
-consumed, with the ceiling known in advance — and it rides the SFR (historically also Orange) radio
-network rather than owning spectrum. Prixtel serves roughly 300,000 to 500,000 subscribers and was
-acquired by Altice France, the owner of SFR, in June 2021 for approximately €415M, continuing to
-trade under its own brand.
+Prixtel is a French mobile virtual network operator (MVNO) founded in 2004 by David Charles and headquartered in Aix-en-Provence. It is known for "forfaits flexibles" — mobile plans whose monthly price moves automatically between published tiers according to the data a subscriber actually consumed, with the ceiling known in advance — and it rides the SFR (historically also Orange) radio network rather than owning spectrum. Prixtel serves roughly 300,000 to 500,000 subscribers, reported about EUR 63.5M revenue in 2024, and was acquired by Altice France, the owner of SFR, in June 2021 for approximately EUR 415M while continuing to trade under its own brand; the Serena venture attribution that surfaced this profile is therefore a realized exit rather than a current holding. Prixtel publishes no public API, no developer portal, no SDK, no webhook catalog, and no machine-readable contract of any kind. Its only first-party software distribution is an end-user iOS/Android app for consumption tracking, invoices and line management; api.prixtel.com is that app's private backend and returns HTTP 404 on every probed path, including its own root.
 
-## Why this profile is thin
+**Areas:** Company · Consumer · Telecommunications · Mobile · MVNO · Mobile Network Operator · Mobile Plans · Wireless · France · Europe
 
-**Prixtel has no developer program.** It publishes no API, no developer portal, no SDK, no webhook
-catalog, and no machine-readable contract of any kind. Contract discovery was run in full against
-every live Prixtel host — `www.prixtel.com`, `prixtel.com`, `api.prixtel.com`, `pro.prixtel.com`,
-`assistance.prixtel.com`, `espaceclient.prixtel.com`, `tunnel.prixtel.com` — covering OpenAPI/Swagger
-paths, GraphQL introspection surfaces, MCP endpoints, A2A agent cards at both the canonical and
-legacy well-known paths, and `llms.txt`. Every probe missed.
+## Prixtel on APIs.io
 
-`api.prixtel.com` does resolve and is a live nginx origin — it is the private backend for the Prixtel
-iOS/Android app — but it answers HTTP 404 on its own root and on every path probed. It is not a
-documented, credentialed, or supported integration surface. `robots.txt` disallows `/ws-externe/`,
-the only path on the estate whose name implies a machine interface; it was not probed, because API
-Evangelist honors `robots.txt`.
+Everything profiled for Prixtel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/prixtel/](https://apis.io/providers/prixtel/)** — or go straight to one of the APIs or properties below.
 
-Prixtel also has no GitHub organization (`api.github.com/orgs/prixtel` → 404) and no first-party
-package in any of the nine registries swept. Its only first-party software distribution is an
-end-user mobile app.
+### Published properties
 
-This is an honest zero, not a failed pass. See the `x-coverage` block in `apis.yml`.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## What is in this repository
+#### Security (1)
 
-| Path | What it records |
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Prixtel Domain Security](https://apis.io/security/prixtel/prixtel-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Prixtel Plans Pricing](https://apis.io/plans/prixtel/prixtel-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Prixtel Rate Limits](https://apis.io/rate-limits/prixtel/prixtel-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.prixtel.com/)
+- [Pricing](https://www.prixtel.com/forfait-mobile/)
+- [Support](https://assistance.prixtel.com/)
+- [Blog](https://www.prixtel.com/decouvrir-prixtel/)
+- [Terms of service](https://short.prixtel.com/cgv-cga)
+- [Privacy policy](https://pxtl.fr/docs/charte/res)
+
+## API Evangelist rating
+
+**Kin Score 12.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `apis.yml` | APIs.json 0.20 profile, identity properties, and the `x-coverage` explanation |
-| `well-known/prixtel-well-known.yml` | `/.well-known/` probe across seven hosts — every path missed |
-| `packages/prixtel-packages.yml` | Nine-registry sweep; zero first-party packages, third-party finds labelled |
-| `plans/prixtel-plans-pricing.yml` | `plan_count: 0` — consumer mobile tariffs are not API plans |
-| `rate-limits/prixtel-rate-limits.yml` | `limit_count: 0` |
-| `security/prixtel-domain-security.yml` | Probed TLS / HSTS / DNSSEC / CAA / SPF / DMARC |
-| `llms/prixtel-llms.txt` | Generated agent-facing index of the public Prixtel surface |
+| Discoverability | 49.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 38.2 |
 
-Source: portfolio company of [serena](https://github.com/api-evangelist/serena) (a realized exit —
-Altice France acquired Prixtel in 2021) — https://www.prixtel.com/
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.7** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/prixtel/](https://apis.io/providers/prixtel/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Prixtel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/prixtel/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
